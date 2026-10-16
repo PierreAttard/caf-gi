@@ -1,0 +1,92 @@
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme[progressbar=frametitle,numbering=fraction]{metropolis}
+\usepackage{fontspec}
+\setsansfont{Carlito}
+\usepackage{tabularx,booktabs,array,amsmath,amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows.meta}
+
+% ---------- Palette ----------
+\definecolor{ardoise}{HTML}{23373B}
+\definecolor{meteo}{HTML}{2E86AB}
+\definecolor{terrain}{HTML}{8C5A2B}
+\definecolor{humain}{HTML}{6C4A9E}
+\definecolor{vert}{HTML}{2E9E5B}
+\definecolor{orange}{HTML}{E89B25}
+\definecolor{rouge}{HTML}{C8392B}
+\colorlet{meteoL}{meteo!10}
+\colorlet{terrainL}{terrain!10}
+\colorlet{humainL}{humain!10}
+\setbeamercolor{frametitle}{bg=ardoise}
+\setbeamercolor{progress bar}{fg=terrain,bg=terrain!25}
+\setbeamercolor{alerted text}{fg=terrain}
+\setbeamertemplate{itemize item}{\color{terrain}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{terrain!70}\textendash}
+
+\newcommand{\pt}[1]{{\color{#1}\scriptsize$\blacktriangleright$}\,}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\newcolumntype{H}[1]{>{\centering\arraybackslash\color{white}\bfseries}m{#1}}
+
+\newtcolorbox{niveau}[2][]{enhanced,colback=#2!6,colframe=#2,boxrule=0.6pt,
+  arc=2mm,left=2mm,right=2mm,top=1mm,bottom=1mm,
+  fonttitle=\bfseries\small,coltitle=white,colbacktitle=#2,#1}
+
+\tikzset{
+  fac/.style={rounded corners=2pt,minimum width=1.75cm,minimum height=0.6cm,font=\scriptsize\bfseries,text=white},
+  niv/.style={rounded corners=2pt,minimum width=2.1cm,minimum height=0.9cm,font=\scriptsize,fill=ardoise!8,draw=ardoise!40,align=center},
+  cel/.style={minimum width=1.75cm,minimum height=0.9cm,fill=#1!12,draw=white,line width=1.5pt}}
+
+\title{Méthode 3$\times$3 et cartographie en randonnée}
+\usepackage{xurl}
+\hypersetup{colorlinks=true,urlcolor=meteo!80!black,linkcolor=ardoise}
+% --- Sources ---
+
+
+\author{}
+\date{}
+
+\begin{document}
+
+
+
+% =====================================================
+\begin{frame}[plain]
+\centering
+\vspace{1mm}
+{\color{ardoise}\large\bfseries Matrice de synthèse 3$\times$3 — encadrement de groupe}\par\vspace{2.5mm}
+\fontsize{7.4}{8.8}\selectfont
+\setlength{\arrayrulewidth}{1.8pt}
+\arrayrulecolor{white}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{4pt}
+\makebox[\textwidth][c]{\begin{tabularx}{0.94\paperwidth}{>{\raggedright\arraybackslash}m{1.9cm}|Y|Y|Y}
+\cellcolor{white} &
+\cellcolor{meteo}\centering\arraybackslash\color{white}\bfseries\small Conditions \& Météo &
+\cellcolor{terrain}\centering\arraybackslash\color{white}\bfseries\small Terrain \& Cartographie &
+\cellcolor{humain}\centering\arraybackslash\color{white}\bfseries\small Humain \& Groupe\\
+\hline
+\cellcolor{ardoise}\color{white}\textbf{\small 1.\,Régional}\newline{\color{white}\scriptsize à la maison,\newline préparation} &
+\cellcolor{meteoL}\pt{meteo}Bulletin montagne du massif (Vercors)\newline\pt{meteo}Isotherme 0\,°C, exposition des versants &
+\cellcolor{terrainL}\pt{terrain}IGN 1:25\,000 : tracé, D+/D$-$, distances\newline\pt{terrain}Pentes $>$ 30° : courbes ou carte des pentes\newline\pt{terrain}Azimuts clés, échappatoires &
+\cellcolor{humainL}\pt{humain}Niveau physique et expérience\newline\pt{humain}Temps de marche (300 m/h + pauses)\newline\pt{humain}Équipement obligatoire\\
+\hline
+\cellcolor{ardoise}\color{white}\textbf{\small 2.\,Local}\newline{\color{white}\scriptsize au départ,\newline en marche} &
+\cellcolor{meteoL}\pt{meteo}Ciel et vent sur place (ex.\ Méaudre)\newline\pt{meteo}Neige, boue : réel \emph{vs} bulletin &
+\cellcolor{terrainL}\pt{terrain}Étalonnage de l'altimètre au départ\newline\pt{terrain}Orientation carte--boussole\newline\pt{terrain}Points de regroupement &
+\cellcolor{humainL}\pt{humain}État de forme au départ\newline\pt{humain}Désigner un serre-file\newline\pt{humain}Rythme, hydratation, pauses\\
+\hline
+\cellcolor{ardoise}\color{white}\textbf{\small 3.\,Zonal}\newline{\color{white}\scriptsize point critique,\newline sur l'obstacle} &
+\cellcolor{meteoL}\pt{meteo}Brouillard tombant ?\newline\pt{meteo}Orage imminent ? &
+\cellcolor{terrainL}\pt{terrain}Orientation sans visibilité : azimut\newline\pt{terrain}Lecture de la pente à vue\newline\pt{terrain}Bascule sur l'itinéraire de repli &
+\cellcolor{humainL}\pt{humain}Fatigue, stress du plus faible\newline\pt{humain}Décision claire : continuer, adapter ou renoncer\\
+\end{tabularx}}
+\arrayrulecolor{black}
+
+
+\end{frame}
+
+
+\end{document}
